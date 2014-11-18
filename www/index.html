@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/nav.css" />
+        <link rel="stylesheet" href="js/fancybox/source/jquery.fancybox.css">
+        <link rel="stylesheet" href="css/calendar.full.css">
+        <title>Community Board App</title>
+
+    </head>
+    <body>
+        <div class="app">
+
+            <div id="nav">
+                 <span class="navitem" id="services" style="position: relative; top: 20px; color: #fff;"><img src="img/icon-png2x.png" /></span>
+            </div>
+
+            <div id="panel">
+                <img src="img/close.png" id="close" />
+
+                <div id="nav-services" class="navbox">
+                    <div class="selectbox" id="staff-nav">
+                        <div class="selectbox-content">
+                           <!--  <img src="img/snowsports-nav.jpg" /> -->
+                           <img src="http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/staff/ffa605007d5b84bd70e6eeb0e235297f6c02f87f.JPG&amp;w=220&amp;h=81&amp;a=tr">
+                            <h2>Meet Our Staff</h2>
+                            <p>Learn about our expert staff.</p>
+                        </div>
+                    </div> <!-- end snow -->
+
+                    <div class="selectbox" id="photos-nav">
+                        <div class="selectbox-content">
+                            <img src="img/hockey-nav.jpg" />
+                            <h2>Community Photos </h2>
+                            <p>See SportChek staff and customers in action.</p>
+                        </div>
+                    </div> <!-- end hockey -->
+
+                    <!-- <div class="selectbox" id="flyer-nav">
+                        <div class="selectbox-content">
+                            <img src="img/bikes-nav.jpg" />
+                            <h2>Our Flyer</h2>
+                            <p>Check out this week's flyer.</p>
+                        </div>
+                    </div>  -->
+
+                    <div class="selectbox" id="cal-nav">
+                        <div class="selectbox-content">
+                            <img src="img/calendar-nav-button.png" />
+                            <h2>Community Calendar</h2>
+                            <p>Find out what's happening around in the community.</p>
+                        </div>
+                    </div> <!-- end other -->
+
+                    <div class="selectbox" id="scores-nav">
+                        <div class="selectbox-content">
+                            <img src="img/scores-nav.png" />
+                            <h2>Live Scores</h2>
+                            <p>Get caught up on yesterday's scores and games happening right now.</p>
+                        </div>
+                    </div> <!-- end other -->
+
+<!--                     <div class="selectbox" id="feature-nav">
+                        <div class="selectbox-content">
+                            <img src="img/raquets-nav.jpg" />
+                            <h2>Featured Athletes</h2>
+                            <p>Learn more about athletes in our area.</p>
+                        </div>
+                    </div>  -->
+
+                </div>
+            </div> <!-- end panel -->
+
+            <script>
+                var w = window.innerWidth;
+                var h = window.innerHeight;
+                // document.write("width: " + w +"px  X  ");
+                // document.write("height: "+ h +"px;");
+            </script>
+
+            <div id="main">
+
+                <div id="splash-nav">
+
+                    <div class="navbox">
+                    <h1 class="splash-title">Community Board</h1>
+                <div class="selectbox" id="staff-nav-splash">
+                        <div class="selectbox-content">
+                <!--  <img src="img/snowsports-nav.jpg" /> -->
+                           <img src="http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/staff/ffa605007d5b84bd70e6eeb0e235297f6c02f87f.JPG&amp;w=220&amp;h=81&amp;a=tr">
+                            <h2>Meet Our Staff</h2>
+                            <p>Learn about our expert staff.</p>
+                        </div>
+                    </div> <!-- end snow -->
+
+                    <div class="selectbox" id="photos-nav-splash">
+                        <div class="selectbox-content">
+                            <img src="img/hockey-nav.jpg" />
+                            <h2>Community Photos </h2>
+                            <p>See SportChek staff and customers in action.</p>
+                        </div>
+                    </div> <!-- end hockey -->
+
+                    <!-- <div class="selectbox" id="flyer-nav-splash">
+                        <div class="selectbox-content">
+                            <img src="img/bikes-nav.jpg" />
+                            <h2>Our Flyer</h2>
+                            <p>Check out this week`s flyer.</p>
+                        </div>
+                    </div> -->
+
+                    <div class="selectbox" id="cal-nav-splash">
+                        <div class="selectbox-content">
+                            <img src="img/calendar-nav-button.png" />
+                            <h2>Community Calendar</h2>
+                            <p>Find out what's happening around in the community.</p>
+                        </div>
+                    </div> <!-- end other -->
+
+                    <div class="selectbox" id="scores-nav-splash">
+                        <div class="selectbox-content">
+                            <img src="img/scores-nav.png" />
+                            <h2>Live Scores</h2>
+                            <p>Get caught up on yesterday`s scores and games happening right now.</p>
+                        </div>
+                    </div> <!-- end other -->
+                </div></div>
+
+
+            </div>
+
+        </div> <!-- end app -->
+<!--        <script type="text/javascript" src="cordova.js"></script>  -->
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/fancybox/source/jquery.fancybox.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+
+
+
+    </body>
+</html>

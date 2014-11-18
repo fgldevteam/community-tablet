@@ -1,0 +1,384 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+@font-face { font-family: GalaxiePolarisCondensed-Book.; src: url('/fonts/GalaxiePolarisCondensed-Book.otf'); } 
+@font-face { font-family: GalaxiePolarisCondensed-Bold; font-weight: bold; src: url('/fonts/GalaxiePolarisCondensed-Bold.otf'); }
+@font-face { font-family: GalaxiePolarisCondensed-Light; font-weight: bold; src: url('/fonts/GalaxiePolarisCondensed-Light.otf'); }
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+ 
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    margin:0px;
+    padding:0px;
+    background-color: #000;
+ /*   text-transform:uppercase;*/
+  /*  height: 727px;
+    width: 1280px;*/
+    overflow: hidden;
+}
+
+/* Portrait layout (default) */
+.app {
+  width: 1280px;
+  height: 727px;
+  background-color: #333 !important;
+  border: 0px solid lime;
+  overflow: hidden !important;
+  position: fixed;
+}
+
+
+#main{
+    /*background-color: blue;*/
+    position: absolute;
+    top: 0px;
+    left: 50px;
+    height: 100%;
+    width: 1280px;
+    overflow: hidden;
+
+}
+
+
+.staff{
+    float: left;
+    width: 42%;
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.person{
+    padding: 3px;
+    float: left;
+}
+
+.selected{
+    float: left;
+    width: 55%;
+    height: 100%;
+    background-color: #666; 
+}
+
+.staff-bio{
+    position: relative;
+    top: 300px;
+    height: 100%;
+    width: 100%;
+    background: url(../img/bio-bg.png) top left no-repeat;
+}
+    .staff-bio-content{ position: relative; top: 120px; left: 50px;}
+    .staff-bio h1{ color: #fff; text-align: left; font-size: 45px; padding: 0 !important; margin: 0 !important; font-family: GalaxiePolarisCondensed-Bold !important; text-transform: uppercase;}
+    .staff-bio h2{ color: #fff; text-align: left; font-size: 30px; padding: 0 !important; margin: 0 !important; font-weight: normal; font-family: GalaxiePolarisCondensed-light !important; text-transform: uppercase;}
+    .staff-bio p{ color: #fff; width: 550px; font-size: 16px; line-height: 27px;}
+    .fav-sport{ position: relative; left: 50px; font-size: 20px;}
+
+
+#feature .content{ background: url(../img/black80.png) top left repeat; position: relative; top: 360px; right: 50px; width: 900px; padding: 20px 50px 10px 50px;}
+#feature #ribbon{ background: url(../img/ribbon.png) top left no-repeat; color: #fff; width: 522px; height: 54px; position: relative; right: 20px; font-size: 30px; font-family: GalaxiePolarisCondensed-Bold; text-transform: uppercase; padding-left: 20px; margin-bottom: 10px;}
+#feature h1{color: #fff; text-align: left; font-size: 36px; padding: 0 !important; margin: 0 !important; font-family: GalaxiePolarisCondensed-Bold !important;}
+#feature p{ color: #fff; width: 900px; font-size: 18px; line-height: 24px;}
+
+#splash-nav{background: url('../img/splash.jpg') top left no-repeat; height: 100%; width: 100%; position: absolute; top: 0px;}
+
+h1.splash-title {color: #fff; text-align: center !important; font-size: 80px !important; padding-bottom: 25px; margin: 0 !important; font-family: GalaxiePolarisCondensed-Bold !important; text-transform: uppercase; }
+.splash-content{
+    margin: 20px auto;
+    width: 1000px;
+    background: url(../img/black80.png) top left repeat;
+}
+.splash-content h2{
+ color: #fff; font-family: GalaxiePolarisCondensed-Bold !important; text-transform: uppercase;  text-align: center; font-size: 30px; margin: 0 !important; padding: 0 !important;
+}
+
+#splash-nav{
+/*    width: 900px;
+    height: 600px;*/
+}
+    #splash-nav .navbox{ width: 1000px; position: relative; left: 100px; background: url(../img/black80.png) top left repeat; padding: 0px 0px 60px 0px; }
+    #splash-nav .selectbox{ float: left; }
+
+    #splash-nav .selectbox-content h2{
+        font: 15px normal Arial, sans-serif !important;
+        text-align: left;
+        color: #fff;
+        text-transform: uppercase;
+        margin: 8px 0px 0px 8px !important;
+    }
+
+    #splash-nav .selectbox-content p{
+        font: 12px normal Arial, sans-serif;
+        color: #999999;
+        margin: 4px 0px 0px 8px;
+        width: 220px;
+    }
+
+
+#photos{
+    overflow-y: scroll !important;
+    height: 100%;
+}
+
+    #photos img{ margin: 5px;}
+
+
+#flyer{ 
+    background-color: #fff;
+    overflow-y: scroll;
+    height: 100%;
+
+}
+
+#flyer header, #flyer h1, #flyer a{ display: none;}
+
+#scores{ 
+    height: 100%;
+    overflow-y: scroll;
+    background-color: #fff;
+}
+
+#masterscoretable{ width: 1200px; }
+.sport-row{ padding: 5px; font-size: 35px; font-family: GalaxiePolarisCondensed-Bold; color: #fff; height: 50px; width: 1270px; display: block; background-color: #333; clear: both; margin-bottom: 20px;}
+.sport-title{ position: relative; bottom: 10px;}
+.sport-row img{ padding: 0px 15px;}
+.scoretable{ 
+    width: 300px; 
+    padding: 20px; 
+    float: left;
+}
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+          /* padding-top + padding-bottom + text area = image height */
+          /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+/*h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+*/
+
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+#flyer .flyer-date{
+    font-family: GalaxiePolarisCondensed-Bold !important; text-transform: uppercase; font-size: 35px; 
+}
+
+#flyer .flyer-date:before{
+    content: "Flyer for ";
+}
+#header_area{ display: none !important; }
+.wishabi-broadsheettopbar-submenu{ display: none !important; }  
+.wishabi-broadsheettopbar-share{ display: none !important; }
+.other-flyers-message{ display: none !important; }
+.other-flyers-icon{ display: none !important; }
+.wishabi-broadsheettopbar-flyers{ display: none !important;}
+.wishabi-broadsheettopbar-shopping-list { display: none !important; }
+.wishabi-broadsheettopbar-location, .wishabi-broadsheettopbar-location {display: none !important; }
+.wishabi-flyerfooter-trailer{ display: none !important; }
+
+.scoretable{position: relative; bottom: 20px;}
+.league img{ position: relative; top: 20px;}
+
+.cityteam{text-align: left; }
+.team-city { text-transform: uppercase; display: block; font-family: GalaxiePolarisCondensed-Bold; font-size: 14px; line-height: 14px; text-align: left; padding-left: 10px;}
+.team-name { text-transform: uppercase; display: block; font-family: GalaxiePolarisCondensed-Bold; font-size: 20px; line-height: 20px; text-align: left; padding-left: 10px; float: left;}
+.score{ font-size: 24px; font-family: GalaxiePolarisCondensed-Bold; text-align: center;  }
+.clock{ font-size: 16px; font-family: GalaxiePolarisCondensed-Bold; vertical-align: middle; text-align: right; padding-right: 10px; float: right;}
+sup{ font-size: 10px;}
+
+.logo{ width: 80px;}
+.team-logo { height: 80px; width: 106px; display: block; position: relative; left: 10px; }
+
+.NHL-logo         { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/05_NHL_Shield.svg') center center no-repeat; }
+.NHL-Anaheim      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Anaheim_Ducks.svg') center center no-repeat; }
+.NHL-Boston       { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Boston_Bruins.svg') center center no-repeat; }
+.NHL-Buffalo      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Buffalo_Sabres_Logo.svg') center center no-repeat; }
+.NHL-Calgary      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Calgary_Flames_Logo.svg') center center no-repeat; }
+.NHL-Carolina     { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Carolina_Hurricanes.svg') center center no-repeat; }
+.NHL-Chicago      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/ChicagoBlackhawksLogo.svg') center center no-repeat; }
+.NHL-Colorado     { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Colorado_Avalanche_logo.svg') center center no-repeat; }
+.NHL-Columbus     { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Columbus_BlueJackets.svg') center center no-repeat; }
+.NHL-Dallas       { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Dallas_Stars_2013_crest.svg') center center no-repeat; }
+.NHL-Detroit      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Detroit_Red_Wings_logo.svg') center center no-repeat; }
+.NHL-Florida      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Florida_Panthers.svg') center center no-repeat; }
+.NHL-Edmonton     { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Logo_Edmonton_Oilers.svg') center center no-repeat; }
+.NHL-NYIslanders  { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Logo_New_York_Islanders.svg') center center no-repeat; }
+.NHL-NYRangers    { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/New_York_Rangers.svg') center center no-repeat; }
+.NHL-LosAngeles   { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Los_Angeles_Kings_Logo_(2011).svg')   center center no-repeat; }
+.NHL-Minnesota    { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Minnesota_Wild.svg')                  center center no-repeat; }
+.NHL-Montreal     { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Montreal_Canadiens.svg')              center center no-repeat; }
+.NHL-Nashville    { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Nashville_Predators_Logo_(2011).svg') center center no-repeat; }
+.NHL-NewJersey    { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/New_Jersey_Devils_logo.svg')          center center no-repeat; }
+.NHL-Ottawa       { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Ottawa_Senators.svg')                 center center no-repeat; }
+.NHL-Philadelphia { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Philadelphia_Flyers.svg')             center center no-repeat; }
+.NHL-Phoenix      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Phoenix_Coyotes.svg')                 center center no-repeat; }
+.NHL-Pittsburgh   { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Pittsburgh_Penguins_logo.svg')        center center no-repeat; }
+.NHL-SanJose      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/SanJoseSharksLogo.svg')               center center no-repeat; }
+.NHL-StLouis      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/StLouis_Blues.svg')                   center center no-repeat; }
+.NHL-TampaBay     { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Tampa_Bay_Lightning_Logo_2011.svg')   center center no-repeat; }
+.NHL-Toronto      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Toronto_Maple_Leafs_logo.svg')        center center no-repeat; }
+.NHL-Vancouver    { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Vancouver_Canucks_logo.svg')          center center no-repeat; }
+.NHL-Washington   { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Washington_Capitals.svg')             center center no-repeat; }
+.NHL-Winnipeg     { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nhl/Winnipeg_Jets_Logo_2011.svg')         center center no-repeat; }
+
+/*mlb logos*/
+.MLB-logo         { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Major_League_Baseball.svg') center center no-repeat; }
+.MLB-Arizona      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Arizona_Diamondbacks_Logo.svg') center center no-repeat; }
+.MLB-Atlanta      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Atlanta_Braves.svg') center center no-repeat; }
+.MLB-Baltimore    { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Baltimore_Orioles_Logo.svg') center center no-repeat; }
+.MLB-ChicagoCubs  { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Chicago_Cubs_Logo.svg') center center no-repeat; }
+.MLB-ChicagoWSox  { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Chicago_White_Sox.svg') center center no-repeat; }
+.MLB-Cincinnati   { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Cincinnati_Reds_Logo.svg') center center no-repeat; }
+.MLB-Cleveland    { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Cleveland_Indians_logo.svg') center center no-repeat; }
+.MLB-Colorado     { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Colorado_Rockies_logo.svg') center center no-repeat; }
+.MLB-Detroit      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Detroit_tigers_textlogo.svg') center center no-repeat; }
+.MLB-Houston      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Houston_Astros_Logo.svg') center center no-repeat; }
+.MLB-KansasCity   { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Kansas_City_Royals.svg') center center no-repeat; }
+.MLB-LAAngels     { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Los_Angeles_Angels_of_Anaheim.svg') center center no-repeat; }
+.MLB-LosAngeles   { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Los_Angeles_Dodgers.eps.svg') center center no-repeat; }
+.MLB-Miami        { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/MiamiMarlins.svg') center center no-repeat; }
+.MLB-Milwaukee    { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Milwaukee_Brewers_Logo.svg') center center no-repeat; }
+.MLB-Minnesota    { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Minnesota_Twins_Logo.svg') center center no-repeat; }
+.MLB-NYMets       { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/New_York_Mets.svg') center center no-repeat; }
+.MLB-NYYankees    { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/NewYorkYankees_PrimaryLogo.svg') center center no-repeat; }
+.MLB-Oakland      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Oakland_athl_primlogo.svg') center center no-repeat; }
+.MLB-Philadelphia { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Philadelphia_Phillies.svg') center center no-repeat; }
+.MLB-Pittsburgh   { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Pittsburgh_Pirates_MLB_Logo.svg') center center no-repeat; }
+.MLB-Boston       { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/RedSoxPrimary_HangingSocks.svg') center center no-repeat; }
+.MLB-SanDiego     { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/San_Diego_Padres_logo.svg') center center no-repeat; }
+.MLB-SanFrancisco { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/San_Francisco_Giants_Logo.svg') center center no-repeat; }
+.MLB-Seattle      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Seattle_Mariners_logo.svg') center center no-repeat; }
+.MLB-StLouis      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/St._Louis_Cardinals_Logo.svg') center center no-repeat; }
+.MLB-TampaBay     { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Tampa_Bay_Rays.svg') center center no-repeat; }
+.MLB-Texas        { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Texas_Rangers.svg') center center no-repeat; }
+.MLB-Toronto      { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Toronto_Blue_Jays_logo.svg') center center no-repeat; }
+.MLB-Washington   { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/mlb/Washington-Nationals-Logo.svg') center center no-repeat; }
+
+/*nfl logos*/
+.NFL-logo { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/National_Football_League_2008.svg') center center no-repeat; }
+.NFL-Sanfrancisco { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/49ers_Logo.svg') center center no-repeat; }
+.NFL-Arizona { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Arizona_Cardinals_logo.svg') center center no-repeat; }
+.NFL-Atlanta { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Atlanta_Falcons_logo.svg') center center no-repeat; }
+.NFL-Baltimore { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Baltimore_Ravens_logo.svg') center center no-repeat; }
+.NFL-Buffalo { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Buffalo_Bills_logo.svg') center center no-repeat; }
+.NFL-Carolina { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Carolina_Panthers_logo_2012.svg') center center no-repeat; }
+.NFL-Chicago { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Chicago_Bears_logo.svg') center center no-repeat; }
+.NFL-Cincinnati { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Cincinnati_Bengals.svg') center center no-repeat; }
+.NFL-Cleveland { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Cleveland_Browns_logo-01.svg') center center no-repeat; }
+.NFL-Dallas { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Dallas_Cowboys.svg') center center no-repeat; }
+.NFL-Denver { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Denver_Broncos_logo.svg') center center no-repeat; }
+.NFL-GreenBay { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Green_Bay_Packers_logo.svg') center center no-repeat; }
+.NFL-Houston { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Houston_Texans_logo.svg') center center no-repeat; }
+.NFL-Indianapolis { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Indianapolis_Colts_logo.svg') center center no-repeat; }
+.NFL-Jacksonville { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Jacksonville_Jaguars.svg') center center no-repeat; }
+.NFL-KansasCity { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Kansas_City_Chiefs_logo.svg') center center no-repeat; }
+.NFL-Miami { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Miami_Dolphins_logo.svg') center center no-repeat; }
+.NFL-Minnesota { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/minnesota_vikings.svg') center center no-repeat;}
+.NFL-NewEngland { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/New_England_Patriots_logo.svg') center center no-repeat; }
+.NFL-Detroit { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/New_Lions_Logo.svg') center center no-repeat; }
+.NFL-Neworleans { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/New_Orleans_Saints.svg') center center no-repeat; }
+.NFL-Giants { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/New_York_Giants_logo.svg') center center no-repeat; }
+.NFL-Jets { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/New_York_Jets_logo.svg') center center no-repeat; }
+.NFL-Oakland { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Oakland_Raiders.svg') center center no-repeat; }
+.NFL-Philadelphia { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Philadelphia_Eagles_primary_logo.svg') center center no-repeat; }
+.NFL-Pittsburgh { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Pittsburgh_Steelers_logo.svg') center center no-repeat; }
+.NFL-Sandiego { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/San_Diego_Chargers_logo.svg') center center no-repeat; }
+.NFL-Seattle { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/SeattleSeahawks.svg') center center no-repeat; }
+.NFL-Stlouis { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/St_Louis_Rams_logo.svg') center center no-repeat; }
+.NFL-TampaBay { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Tampa_Bay_Buccaneers_logo.svg') center center no-repeat; }
+.NFL-Tennessee { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Tennessee_Titans_logo.svg') center center no-repeat; }
+.NFL-Washington { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nfl/Washington_Redskins_logo.svg') center center no-repeat; }
+
+
+
+.NBA-logo { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/NBALogo.svg') center center no-repeat;}
+.NBA-Atlanta { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Atlanta_Hawks.svg') center center no-repeat; }
+.NBA-Boston { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Boston_Celtics.svg') center center no-repeat; }
+.NBA-Brooklyn { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Brooklyn_Nets_newlogo.svg') center center no-repeat; }
+.NBA-Chicago { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Chicago_Bulls_logo.svg') center center no-repeat; }
+.NBA-Charlotte { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/bobcats.svg') center center no-repeat; }
+.NBA-Cleveland { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Cleveland_Cavaliers_2010.svg') center center no-repeat; }
+.NBA-Dallas { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Dallas_Mavericks_logo.svg') center center no-repeat; }
+.NBA-Philadelphia { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Philadelphia_76ers_Logo.svg') center center no-repeat; }
+.NBA-Denver { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Denver_Nuggets.svg') center center no-repeat; }
+.NBA-Detroit { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Detroit_Pistons_logo.svg') center center no-repeat; }
+.NBA-GoldenState { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Golden_State_Warriors_logo.svg') center center no-repeat; }
+.NBA-Houston { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Houston_Rockets.svg') center center no-repeat; }
+.NBA-Indiana { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Indiana_Pacers.svg') center center no-repeat; }
+.NBA-LALakers { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/LosAngeles_Lakers_logo.svg') center center no-repeat; }
+.NBA-LAClippers { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Los_Angeles_Clippers_logo.svg') center center no-repeat; }
+.NBA-Memphis { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Memphis_Grizzlies.svg') center center no-repeat; }
+.NBA-Miami { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Miami_Heat_logo.svg') center center no-repeat; }
+.NBA-Milwaukee { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Milwaukee_Bucks.svg') center center no-repeat; }
+.NBA-Minnesota { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Minnesota_Timberwolves.svg') center center no-repeat; }
+.NBA-NewYork { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/knicks.svg') center center no-repeat; }
+.NBA-OklahomaCity { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Oklahoma_City_Thunder.svg') center center no-repeat; }
+.NBA-Orlando { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Orlando_Magic.svg') center center no-repeat; }
+.NBA-Phoenix { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Phoenix_Suns.svg') center center no-repeat; }
+.NBA-Portland { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Portland_Trail_Blazers.svg') center center no-repeat; }
+.NBA-Sacramento { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Sacramento_Kings.svg') center center no-repeat; }
+.NBA-SanAntonio { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/San_Antonio_Spurs.svg') center center no-repeat; }
+.NBA-Toronto { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Toronto_Raptors.svg') center center no-repeat; }
+.NBA-Utah { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Utah_Jazz.svg') center center no-repeat; }
+.NBA-Washington { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/Washington_Wizards_Logo.svg') center center no-repeat; }
+.NBA-NewOrleans { background: transparent url('http://younge.thecompleteexperience.ca/cash-assets/images/nba/neworleans.svg') center center no-repeat; }
+
+.CFL-BC{}
+.CFL-Calgary{}
+.CFL-Edmonton{}
+.CFL-Saskatchewan{}
+.CFL-Winnipeg{}
+.CFL-Hamilton{}
+.CFL-Toronto{}
+.CFL-Ottawa{}
+.CFL-Montreal{}
+
+

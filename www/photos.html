@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Community Board :: Staff</title>
+
+    </head>
+    <body>
+        <div class="app">
+            
+            <script>
+                var w = window.innerWidth;
+                var h = window.innerHeight;
+
+                // document.write("width: " + w +"px  X  ");
+                // document.write("height: "+ h +"px;");
+            </script>
+            
+            <div class="selected">
+                
+
+            </div>
+
+
+            <div class="staff">
+                
+
+            </div>
+  
+        </div>
+<!--        <script type="text/javascript" src="cordova.js"></script>  -->
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+
+
+        <script>
+            // $.getJSON( "http://younge.thecompleteexperience.ca/api/staff", function( data ) {
+            //   var items = [];
+            //   $.each( data, function( key, val ) {
+            //     items.push( "<li id='" + key + "'>" + val + "</li>" );
+            //   });
+             
+            //   $( "<ul/>", {
+            //     "class": "my-new-list",
+            //     html: items.join( "" )
+            //   }).appendTo( "body" );
+            // });
+         
+            // var obj = $.getJSON('http://younge.thecompleteexperience.ca/api/staff');
+
+            // function getAllSupportedItems() {
+            //     return $.getJSON("http://younge.thecompleteexperience.ca/api/staff").then(function (data) {
+            //         return data.items;
+
+                    
+            //     });
+            // }
+
+            // getAllSupportedItems().done(function (items) {
+            //     console.log(data.items);
+            // });
+           // var thing = JSON.stringify(obj.responseJSON);
+            //console.log(thing);
+
+
+
+            $(document).ready(function () {
+
+
+
+
+
+                //var dataArray = $.parseJSON(response);
+                var my_json;
+                $.getJSON('http://younge.thecompleteexperience.ca/api/photos', function(json) {
+                  my_json = json;
+                    var first_photo = my_json[0].photo;
+                    var first_first = my_json[0].first;
+                    var first_last = my_json[0].last;
+                    var first_bio = my_json[0].bio;
+                    var first_pos = my_json[0].position;
+
+                    //alert(first_photo+" "+first_first+" "+first_last+" "+first_bio+" "+first_pos);
+                    //put #1 in the featured spot
+                    $('.selected').append(
+                        "<div style='height: 727px; width: 100%; background:url(http://younge.thecompleteexperience.ca/timthumb.php?src=/images/staff/"+first_photo+"&amp;w=745&amp;h=727&amp;a=br);'><h1>"+first_first+" "+first_last+"</h1><p>"+first_bio+"</p></div>"
+                    );
+                  
+                    //loop the others as photo buttons
+                    var i=1;
+                    $.each(my_json, function(index, element) {
+
+                        $('.staff').append(
+                            "<div class='person'><a href=javascript:showPerson(`"+element.first+"`,`"+element.last+"`,`"+element.position+"`,`"+element.photo+"`,`"+element.bio+"`,`"+element.favorite_sport+"`);><img src='http://younge.thecompleteexperience.ca/timthumb.php?src=/images/staff/"+element.photo+"&amp;w=124&amp;h=158&amp;a=br'></a></div>"
+                            // "<div class='person'><a href=javascript:showPerson("+my_json[i]+");><img src='http://younge.thecompleteexperience.ca/timthumb.php?src=/images/staff/"+element.photo+"&amp;w=124&amp;h=158&amp;a=br'></a></div>"
+                        );
+
+                        i++;
+                    });
+
+                    function showPerson(json){
+                        first = json.first;
+                        last = json.last;
+                        pos = json.pos;
+                        bio = json.bio;
+                        sport = json.sport;
+                        photo = json.photo;
+
+                        alert(first+" "+last+" "+pos+" "+bio+" "+sport+" "+photo);
+                        // $('.selected div').fadeOut();
+                        // $('.selected').append(
+                        //    "<div style='height: 727px; width: 100%; background:url('http://younge.thecompleteexperience.ca/timthumb.php?src=/images/staff/"+photo+"&amp;w=600&amp;h=727&amp;a=br')><h1>"+first+" "+last+"</h1></div>"
+                        // );
+                    }                
+
+
+
+                });
+
+
+                  
+
+               //showPerson(1);
+            });
+
+
+
+     
+
+        </script>        
+    </body>
+</html>
