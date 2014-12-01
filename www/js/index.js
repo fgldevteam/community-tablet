@@ -63,6 +63,7 @@ $( document ).ready(function() {
 
     $('#close').click(function(){
         closePanel();
+
         $( ".navitem" ).on( "click", function() {
             var id = $(this).attr('id');
             openPanel(id);
@@ -75,25 +76,25 @@ $( document ).ready(function() {
 var openPanel = function(id){
 
     $("#panel").addClass("open");
-    $("#arrow").hide();
+//    $("#arrow").hide();
 
 
-    switch(id){
-        case "services":
-            $("#how").addClass("grey");
-            $("#training").addClass("grey");
-        break;
-
-        case "how":
-            $("#services").addClass("grey");
-            $("#training").addClass("grey");
-        break;
-
-        case "training":
-            $("#services").addClass("grey");
-            $("#how").addClass("grey");
-        break;
-    }
+    // switch(id){
+    //     case "services":
+    //         $("#how").addClass("grey");
+    //         $("#training").addClass("grey");
+    //     break;
+    //
+    //     case "how":
+    //         $("#services").addClass("grey");
+    //         $("#training").addClass("grey");
+    //     break;
+    //
+    //     case "training":
+    //         $("#services").addClass("grey");
+    //         $("#how").addClass("grey");
+    //     break;
+    // }
 
     $( "#panel" ).animate({
       width: "+=750"
@@ -190,10 +191,10 @@ var loadIndex = function(){
     if($('#panel').hasClass('open')){
 
         hideNavItems();
-        $("#panel").removeClass("open");
-        $("#services").removeClass("grey");
-        $("#how").removeClass("grey");
-        $("#training").removeClass("grey");
+        // $("#panel").removeClass("open");
+        // $("#services").removeClass("grey");
+        // $("#how").removeClass("grey");
+        // $("#training").removeClass("grey");
 
         $( "#panel" ).animate({
           width: "-=750"
@@ -558,8 +559,8 @@ var getScores= function(){
 
             };
             setupScores();
-            setInterval(function(){ setupScores(); },3600000);
-            setInterval(function(){ updateScores(); },5000);
+            // setInterval(function(){ setupScores(); },3600000);
+            // setInterval(function(){ updateScores(); },5000);
 
                     // setInterval(function(){
                     //  // console.log("looped");
@@ -637,6 +638,7 @@ var getNick = function(league, city){
                         case "Ottawa": return "Senators"; break;
                         case "Philadelphia": return "Flyers"; break;
                         case "Phoenix": return "Coyotes"; break;
+                        case "Arizona": return "Coyotes"; break;
                         case "Pittsburgh": return "Penguins"; break;
                         case "SanJose": return "Sharks"; break;
                         case "StLouis": return "Blues"; break;
@@ -833,7 +835,6 @@ var showPerson = function(i){
         $('.selected').append("<div style='height: 727px; width: 100%; background:url(http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/staff/"+photo+"&amp;w=745&amp;h=727&amp;a=br);'><div class='staff-bio'><div class='staff-bio-content'><h1>"+first+" "+last+"</h1><h2>"+pos+" <span class='fav-sport'>❤ Sport: "+sport+"</span></h2><p>"+bio+"</p></div></div>></div>");
         $('.selected div').hide();
 
-        //$('.selected div').fadeIn(600);
         $('.selected div').fadeIn(600);
 
     });
