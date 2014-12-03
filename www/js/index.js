@@ -797,7 +797,7 @@ var getStaff = function(){
         //alert(first_photo+" "+first_first+" "+first_last+" "+first_bio+" "+first_pos);
         //put #1 in the featured spot
         $('.selected').append(
-            "<div style='height: 727px; width: 100%; background:url(http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/staff/"+first_photo+"&amp;w=745&amp;h=727&amp;a=br);'><div class='staff-bio'><div class='staff-bio-content'><h1>"+first_first+" "+first_last+"</h1><h2>"+first_pos+" <span class='fav-sport'>❤ Sport: "+first_sport+"</span></h2><p>"+first_bio+"</p></div></div></div>"
+            "<div style='height: 727px; width: 100%; background:url(http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/staff/"+first_photo+"&amp;w=745&amp;h=727&amp;a=br);'><div class='staff-bio'><div class='staff-bio-content'><h1>"+first_first+" "+first_last+"</h1><h2>"+first_pos+" <br /><span class='fav-sport'>❤ Sport: "+first_sport+"</span></h2><p>"+first_bio+"</p></div></div></div>"
         );
 
         //loop the others as photo buttons

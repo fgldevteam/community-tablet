@@ -79,21 +79,21 @@ body {
     float: left;
     width: 55%;
     height: 100%;
-    background-color: #666;
+    background-color: #000;
 }
 
 .staff-bio{
     position: relative;
-    top: 300px;
+    top: 200px;
     height: 100%;
     width: 100%;
     background: url(../img/bio-bg.png) top left no-repeat;
 }
     .staff-bio-content{ position: relative; top: 120px; left: 50px;}
     .staff-bio h1{ color: #fff; text-align: left; font-size: 45px; padding: 0 !important; margin: 0 !important; font-family: GalaxiePolarisCondensed-Bold !important; text-transform: uppercase;}
-    .staff-bio h2{ color: #fff; text-align: left; font-size: 30px; padding: 0 !important; margin: 0 !important; font-weight: normal; font-family: GalaxiePolarisCondensed-light !important; text-transform: uppercase;}
+    .staff-bio h2{ display: block; color: #fff; text-align: left; font-size: 30px; padding: 0 !important; margin: 0 !important; font-weight: normal; font-family: GalaxiePolarisCondensed-light !important; text-transform: uppercase;}
     .staff-bio p{ color: #fff; width: 550px; font-size: 16px; line-height: 27px;}
-    .fav-sport{ position: relative; left: 50px; font-size: 20px;}
+    .fav-sport{ display: block; font-size: 20px;}
 
 
 #feature .content{ background: url(../img/black80.png) top left repeat; position: relative; top: 360px; right: 50px; width: 900px; padding: 20px 50px 10px 50px;}
