@@ -14,7 +14,7 @@ font-family: "GalaxiePolarisCondensed-Book",sans-serif;
 /*padding-bottom: 155px;*/
 }
 .calendar.small {
-	
+
 	font-weight: 100;
 }
 
@@ -44,7 +44,7 @@ user-select: none;
 	margin-left: 50px;
 	color: #333333;
 
-	
+
 
 
 }
@@ -73,7 +73,7 @@ user-select: none;
 }
 [data-dir=left] {
 	left: 20px;
-	text-align: center;	
+	text-align: center;
 	background: url(../img/left.png) top center no-repeat;
 }
 [data-dir=right] {
@@ -92,8 +92,8 @@ user-select: none;
 .calendar-month-view-arrow { color: white; font-size: 80px;}
 .calendar-holder {
 	/*width:100%;*/
-	width: 1290px;
-	
+	width: 1230px;
+
 	height: 677px;
 	position: relative;
 	/*overflow: hidden;*/
@@ -105,7 +105,7 @@ user-select: none;
 	height: 100%;
 	position: absolute;
 	top: 0;
-	
+
 }
 .calendar.spec-day .calendar-grid {
 	display: none;
@@ -153,7 +153,7 @@ user-select: none;
 	.calendar-day.have-events3 {
 		cursor: pointer;
 		background-color: #7dc8c1 !important;
-		
+
 	}
 		.calendar-day.have-events3 .date-holder{
 			color: #fff !important;
@@ -230,7 +230,7 @@ user-select: none;
 	.calendar-day.other-month .date-holder{
 		color: #eaeaec !important;
 	}
-	
+
 	.other-month img{
 		opacity: 0.15;
 	}
@@ -299,7 +299,7 @@ font: bold 30px Arial, sans-serif;
 	background-color: #fff !important;
 	color: #333 !important;
 	font-family: GalaxiePolarisCondensed-Bold !important;
-	
+
 }
 
 .return{
@@ -347,7 +347,7 @@ font: bold 30px Arial, sans-serif;
 .specific-day-info[i=month] {
 	font-size: 75px;
 	text-align: center;
-	font-family: GalaxiePolarisCondensed-Bold !important;	
+	font-family: GalaxiePolarisCondensed-Bold !important;
 	letter-spacing: -5px;
 	text-transform: uppercase;
 }
@@ -356,8 +356,8 @@ font: bold 30px Arial, sans-serif;
 	font-size: 120px;
 	line-height: 130px;
 	letter-spacing: -5px;
-	text-align: center;	
-	font-family: GalaxiePolarisCondensed-Bold !important;	
+	text-align: center;
+	font-family: GalaxiePolarisCondensed-Bold !important;
 }
 
 .calendar-specific .specific-day-scheme {
@@ -372,13 +372,13 @@ font: bold 30px Arial, sans-serif;
 
 }
 .calendar-specific .specific-day-scheme::-webkit-scrollbar {
-	
+
 }
 .calendar-specific .specific-day-scheme::-webkit-scrollbar-track {
 	background: transparent;
 }
 .calendar-specific .specific-day-scheme::-webkit-scrollbar-thumb {
-	
+
 }
 
 .specific-day-scheme .specific-day-scheme-event {
@@ -402,7 +402,7 @@ font: bold 30px Arial, sans-serif;
 	color: #333 !important;
 	padding-bottom: 10px;
 
-	
+
 }
 .calendar .specific-day-scheme-event p{
 	font-family: Arial, sans-serif;
