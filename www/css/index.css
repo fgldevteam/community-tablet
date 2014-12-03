@@ -117,6 +117,8 @@ h1.splash-title {color: #fff; text-align: center !important; font-size: 80px !im
 /*    width: 900px;
     height: 600px;*/
 }
+
+    #panel, #panel .navbox{ z-index: 9999 !important;}
     #splash-nav .navbox{ width: 1000px; position: relative; left: 100px; background: url(../img/black80.png) top left repeat; padding: 0px 0px 60px 0px; }
     #splash-nav .selectbox{ float: left; }
 

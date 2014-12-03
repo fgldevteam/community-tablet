@@ -76,6 +76,12 @@ $( document ).ready(function() {
 var openPanel = function(id){
 
     $("#panel").addClass("open");
+
+    //
+
+    $('<div class="fancybox-brent"></div>').appendTo('#main');
+    $("#photos a").removeClass("fancybox");
+//    $("#photos").hide();
 //    $("#arrow").hide();
 
 
@@ -106,7 +112,9 @@ var openPanel = function(id){
 }
 
 var closePanel = function(){
-
+    $('.fancybox-brent').remove();
+    $("#photos a").addClass("fancybox");
+    
     hideNavItems();
     $("#panel").removeClass("open");
     // $("#services").removeClass("grey");
@@ -122,11 +130,14 @@ var closePanel = function(){
         }
     });
     $("#close").hide();
+
+//    $("#photos a").click(function(e){ e.preventDefault(); });
 }
 
 var loadNavContent = function(id){
    // $("#nav-"+id).load("nav/"+id+".html").fadeIn();
-   $("#nav-"+id).fadeIn();
+   //$("#nav-"+id).fadeIn();
+   $(".navbox").fadeIn();
 }
 
 var hideNavItems = function(){
