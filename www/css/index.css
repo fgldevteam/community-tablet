@@ -16,9 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-@font-face { font-family: GalaxiePolarisCondensed-Book.; src: url('/fonts/GalaxiePolarisCondensed-Book.otf'); }
-@font-face { font-family: GalaxiePolarisCondensed-Bold; font-weight: bold; src: url('/fonts/GalaxiePolarisCondensed-Bold.otf'); }
-@font-face { font-family: GalaxiePolarisCondensed-Light; font-weight: bold; src: url('/fonts/GalaxiePolarisCondensed-Light.otf'); }
+@font-face { font-family: GalaxiePolarisCondensed-Book.; src: url('../fonts/GalaxiePolarisCondensed-Book.otf'); }
+@font-face { font-family: GalaxiePolarisCondensed-Bold; font-weight: bold; src: url('../fonts/GalaxiePolarisCondensed-Bold.otf'); }
+@font-face { font-family: GalaxiePolarisCondensed-Light; font-weight: bold; src: url('../fonts/GalaxiePolarisCondensed-Light.otf'); }
 
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
@@ -29,7 +29,8 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
 
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    /*font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;*/
+    font-family: GalaxiePolarisCondensed-Bold;
     font-size:12px;
     margin:0px;
     padding:0px;
@@ -143,7 +144,23 @@ h1.splash-title {color: #fff; text-align: center !important; font-size: 80px !im
     height: 100%;
 }
 
-    #photos img{ margin: 5px;}
+    #photos img{ margin: 10px 5px 10px 5px;}
+
+.mosaicflow__column {
+    float:left;
+}   
+    .mosaicflow__item {
+        width:300px;
+    }
+    .mosaicflow__item img {
+        display:block;
+        width:300px;
+        height:auto;
+    }  
+    .mosaicflow__column {
+        width:24.5%;
+        /*border: thin solid green;*/
+    }
 
 
 #flyer{

@@ -1,12 +1,13 @@
 // http://www.ericwenn.se/playground/jquery-calendar/
 var yy;
 var calendarArray =[];
-var monthOffset = [6,7,8,9,10,11,0,1,2,3,4,5];
+// var monthOffset = [6,7,8,9,10,11,0,1,2,3,4,5];
 var monthArray = [["JAN","January"],["FEB","February"],["MAR","March"],["APR","April"],["MAY","May"],["JUN","June"],["JUL","July"],["AUG","August"],["SEP","September"],["OCT","October"],["NOV","November"],["DEC","December"]];
 //var dayArray = ["7","1","2","3","4","5","6"];
 var dayArray = ["1","2","3","4","5","6","7"];
 $(document).ready(function() {
 
+	$(document).unbind();
 	$(document).on('click','.calendar-day.have-events',activateDay);
 	$(document).on('click','.specific-day',activatecalendar);
 	$(document).on('click','.return',activatecalendar);
@@ -29,6 +30,8 @@ $(document).ready(function() {
 	}
 
 	function offsetcalendar() {
+
+		console.log("I am being called")
 		var cm = parseInt($(".calendar").attr('offset'));
 		if($(this).data('dir') == "left") {
 			calendarSetMonth(cm-1);
@@ -61,7 +64,7 @@ $(document).ready(function() {
 	}
 
 	function calendarSet() {
-		$(".calendar").append('<div class="calendar-month-view"><div class="calendar-month-view-arrow" data-dir="left"><i class="icon-reply"></i></div><div class="calendar-month-view-title"></div><div class="calendar-month-view-arrow" data-dir="right"><i class="icon-share-alt"></i></div><div class="days"><span class="dayofweek">S</span><span class="dayofweek">M</span><span class="dayofweek">T</span><span class="dayofweek">W</span><span class="dayofweek">T</span><span class="dayofweek">F</span><span class="dayofweek">S</span></div></div><div class="calendar-holder"><div class="calendar-grid"></div><div class="calendar-specific"><div class="specific-day"><div class="specific-day-info" i="day"></div><div class="specific-day-info" i="month"></div><div class="specific-day-info" i="year"></div><div class="return"><i class="icon-reply"></i>&nbsp; Return to Calendar</div></div><div class="specific-day-scheme"></div></div></div>');
+		$(".calendar").append('<div class="calendar-month-view"><div class="calendar-month-view-arrow" data-dir="left"></div><div class="calendar-month-view-title"></div><div class="calendar-month-view-arrow" data-dir="right"></div><div class="days"><span class="dayofweek">S</span><span class="dayofweek">M</span><span class="dayofweek">T</span><span class="dayofweek">W</span><span class="dayofweek">T</span><span class="dayofweek">F</span><span class="dayofweek">S</span></div></div><div class="calendar-holder"><div class="calendar-grid"></div><div class="calendar-specific"><div class="specific-day"><div class="specific-day-info" i="day"></div><div class="specific-day-info" i="month"></div><div class="specific-day-info" i="year"></div><div class="return"><i class="icon-reply"></i>&nbsp; Return to Calendar</div></div><div class="specific-day-scheme"></div></div></div>');
 		$(".calendar").each(function() {
 			if($(this).data("color") == undefined) {
 				$(this).data("color","red");
@@ -77,6 +80,7 @@ $(document).ready(function() {
 					tempeventarray["end"] = $(this).data("end");
 					tempeventarray["location"] = $(this).data("location");
 					tempeventarray["details"] = $(this).data("details");
+					tempeventarray["hilite"] = $(this).data("hilite");
 					tempdayarray.push(tempeventarray);
 				});
 				calendarArray[$(this).data('day')] = tempdayarray;
@@ -95,6 +99,7 @@ $(document).ready(function() {
 		d.year = di.getFullYear();
 		d.events = calendarArray[strtime];
 		d.tocalendar = tocalendar;
+		console.log(d);
 		d.tocalendar();
 	}
 	var tocalendar = function() {
@@ -103,6 +108,7 @@ $(document).ready(function() {
 		$(".specific-day-info[i=year]").html(this.year);
 		if(this.events !== undefined) {
 		var ev = orderBy('start',this.events);
+			$(".specific-day-scheme").empty();
 			for(var o = 0; o<ev.length;o++) {
 				if(ev[o]['details']){
 					$(".specific-day-scheme").append('<div class="specific-day-scheme-event"><h1><i class="icon-calendar"></i>&nbsp;'+ev[o]['name']+'</h1><p data-role="dur">'+ev[o]['start']+' - '+ev[o]['end']+'</p><p data-role="loc">'+ev[o]['location']+'</p><p data-role="det">'+ev[o]['details']+'</p></div>');	
@@ -122,9 +128,22 @@ $(document).ready(function() {
 		var c = new Date();
 		var e = new Date();
 		if(offset !== undefined) {
-			d.setMonth(d.getMonth()+offset);
-			e.setMonth(e.getMonth()+offset);
-			$(".calendar").attr('offset', offset);
+			// d.setMonth(d.getMonth()+offset);
+			// e.setMonth(e.getMonth()+offset);
+			// $(".calendar").attr('offset', offset);
+			if( d.getDate() > 28 ){
+				console.log("I'm in here");
+				d.setDate(28);
+				d.setMonth(d.getMonth()+offset);
+				
+				e.setMonth(e.getMonth()+offset);
+				$(".calendar").attr('offset', offset);
+			} else {
+				d.setMonth(d.getMonth()+offset);	
+				e.setMonth(e.getMonth()+offset);
+				$(".calendar").attr('offset', offset);
+			}
+
 		} else {
 			$(".calendar").attr('offset', 0);
 		}
@@ -144,7 +163,27 @@ $(document).ready(function() {
 				if(d.getTime() == c.getTime()) {
 					cal_day.addClass('this-day');
 				}
-				var strtime = d.getFullYear()+''+(d.getMonth()+1)+''+d.getDate();
+				// var strtime = d.getFullYear()+''+(d.getMonth()+1)+''+d.getDate();
+
+
+				var month ="";
+				if(d.getMonth()+1 < 10){
+					month = d.getMonth()+1;
+					month = "0" + month;
+				} else {
+					month = d.getMonth()+1;
+				}
+				var dateDay = "";
+				if(d.getDate() < 10){
+					dateDay = d.getDate();
+					dateDay = "0" + dateDay;
+				} else {
+					dateDay = d.getDate();
+				}
+				var strtime =  d.getFullYear()+''+month+''+dateDay;
+
+
+
 				if(calendarArray[strtime] !== undefined) {
 					cal_day.addClass('have-events'); //has at least 1 Event
 					

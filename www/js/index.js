@@ -70,6 +70,12 @@ $( document ).ready(function() {
             $('.navitem').off('click');
         });
     });
+
+    $('#gotoHome').click(function(){
+       closePanel();
+       window.location = "index.html"
+
+    });
 //    loadIndex();
 });
 
@@ -107,6 +113,7 @@ var openPanel = function(id){
       }, 300, function() {
         // Animation complete.
         $("#close").fadeIn();
+        $("#gotoHome").fadeIn();
         loadNavContent(id);
     });
 }
@@ -130,6 +137,7 @@ var closePanel = function(){
         }
     });
     $("#close").hide();
+    $("#gotoHome").hide();
 
 //    $("#photos a").click(function(e){ e.preventDefault(); });
 }
@@ -162,6 +170,8 @@ var loadMainContent = function(c){
         //alert("done");
     });
     $("#close").hide();
+    $("#gotoHome").hide();
+
 
     $( ".navitem" ).on( "click", function() {
         var id = $(this).attr('id');
@@ -215,6 +225,7 @@ var loadIndex = function(){
             //alert("done");
         });
         $("#close").hide();
+        $("#gotoHome").hide();
 
         $( ".navitem" ).on( "click", function() {
             var id = $(this).attr('id');
@@ -270,6 +281,10 @@ var getFeaturedContent = function(){
 var getRandomInt = function(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+Array.min = function( array ){
+    return Math.min.apply( Math, array );
+};
 
 
 var getCalendar = function(){
@@ -762,13 +777,27 @@ var getPhotos= function(){
 
         //loop the photos
         var i=1;
+        var parent = 0;
+            
         $.each(my_json, function(index, element) {
 
-            $('#photos').append(
-               // "<div class='person'><a href=javascript:showPerson(`"+element.first+"`,`"+element.last+"`,`"+element.position+"`,`"+element.photo+"`,`"+element.bio+"`,`"+element.favorite_sport+"`);><img src='http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/staff/"+element.photo+"&amp;w=124&amp;h=158&amp;a=br'></a></div>"
-               "<a class='fancybox' href='http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/photos/"+element.path+"&w=1000.jpg'><img src='http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/photos/"+element.path+"&w=300&h=200.jpg'></a>"
+            var filename = element.path;
+            var extension = filename.match(/\.(\w)+/);
+            var file  = filename.substr(0, extension.index);
 
-               // http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/photos/2bb5744e059a7a8a3f442ca4e54d108858a7097d.jpg&w=1000.jpg
+            if(index == 0) {
+               var parent = 0;
+            }
+            else{
+                var parent = getShortestColumn();
+            }
+            
+            console.log("parent :"+ parent);
+            
+            $('#photos').find(".mosaicflow__column").eq(parent).append(
+               
+               "<div class='mosaicflow__item'> <a class='fancybox' href='http://communityboard.storeapps.fglsports.dmz/images/photos/full/"+file+"_1000.jpg'><img src='http://communityboard.storeapps.fglsports.dmz/images/photos/thumb/"+file+"_300.jpg'></a></div>"
+               
             );
 
             i++;
@@ -786,7 +815,18 @@ var getPhotos= function(){
     });
 }
 
+var getShortestColumn = function() {
 
+            var heights = [ 
+                                $(".mosaicflow__column:eq(0)").height(),
+                                $(".mosaicflow__column:eq(1)").height(),
+                                $(".mosaicflow__column:eq(2)").height(),
+                                $(".mosaicflow__column:eq(3)").height()
+                          ];
+            console.log(heights);
+            var parent = heights.indexOf( Array.min(heights));
+            return parent;
+}
 
 
 
@@ -797,27 +837,43 @@ var getStaff = function(){
 
     var my_json;
     $.getJSON('http://communityboard.storeapps.fglsports.dmz/'+STORENUMBER+'/api/staff', function(json) {
+      console.log(json);  
       my_json = json;
-        var first_photo = my_json[0].photo;
-        var first_first = my_json[0].first;
-        var first_last = my_json[0].last;
-        var first_bio = my_json[0].bio;
-        var first_pos = my_json[0].position;
-        var first_sport = my_json[0].favorite_sport;
+        // var first_photo = my_json[0].photo;
+        // var first_first = my_json[0].first;
+        // var first_last = my_json[0].last;
+        // var first_bio = my_json[0].bio;
+        // var first_pos = my_json[0].position;
+        // var first_sport = my_json[0].favorite_sport;
+
+        random = my_json[Math.floor(Math.random()*my_json.length)];
+        var first_photo = random.photo;
+        var extension = first_photo.match(/\.(\w)+/);
+        var file  = first_photo.substr(0, extension.index);
+        var first_first = random.first;
+        var first_last = random.last;
+        var first_bio = random.bio;
+        var first_pos = random.position;
+        var first_sport = random.favorite_sport;
 
         //alert(first_photo+" "+first_first+" "+first_last+" "+first_bio+" "+first_pos);
         //put #1 in the featured spot
         $('.selected').append(
-            "<div style='height: 727px; width: 100%; background:url(http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/staff/"+first_photo+"&amp;w=745&amp;h=727&amp;a=br);'><div class='staff-bio'><div class='staff-bio-content'><h1>"+first_first+" "+first_last+"</h1><h2>"+first_pos+" <br /><span class='fav-sport'>❤ Sport: "+first_sport+"</span></h2><p>"+first_bio+"</p></div></div></div>"
+            "<div style='height: 727px; width: 100%; background:url(http://communityboard.storeapps.fglsports.dmz/images/staff/p/"+file+"_1080X947.jpg) top center; '><div class='staff-bio'><div class='staff-bio-content'><h1>"+first_first+" "+first_last+"</h1><h2>"+first_pos+" <br /><span class='fav-sport'>❤ Sport: "+first_sport+"</span></h2><p>"+first_bio+"</p></div></div></div>"
         );
 
         //loop the others as photo buttons
         var i=1;
         $.each(my_json, function(index, element) {
 
+            var filename = element.photo;
+            var extension = filename.match(/\.(\w)+/);
+            var file  = filename.substr(0, extension.index);
+            
+
             $('.staff').append(
                // "<div class='person'><a href=javascript:showPerson(`"+element.first+"`,`"+element.last+"`,`"+element.position+"`,`"+element.photo+"`,`"+element.bio+"`,`"+element.favorite_sport+"`);><img src='http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/staff/"+element.photo+"&amp;w=124&amp;h=158&amp;a=br'></a></div>"
-               "<div class='person'><a href=javascript:showPerson("+i+");><img src='http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/staff/"+element.photo+"&amp;w=124&amp;h=158&amp;a=br'></a></div>"
+               "<div class='person'><a href=javascript:showPerson("+i+");><img src='http://communityboard.storeapps.fglsports.dmz/images/staff/thumb/"+file+"_124X158.jpg'></a></div>"
             );
 
             i++;
@@ -831,6 +887,8 @@ var showPerson = function(i){
     $.getJSON('http://communityboard.storeapps.fglsports.dmz/'+STORENUMBER+'/api/staff', function(json) {
       my_json = json;
         var photo = my_json[i-1].photo;
+        var extension = photo.match(/\.(\w)+/);
+        var file  = photo.substr(0, extension.index);
         var first = my_json[i-1].first;
         var last = my_json[i-1].last;
         var bio = my_json[i-1].bio;
@@ -843,7 +901,7 @@ var showPerson = function(i){
 
        // $('.selected').fadeIn(600, function() { $(this).append("<div style='height: 727px; width: 100%; background:url(http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/staff/"+photo+"&amp;w=745&amp;h=727&amp;a=br);'><h1>"+first+" "+last+"</h1><p>"+bio+"</p></div>")   });
 
-        $('.selected').append("<div style='height: 727px; width: 100%; background:url(http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/staff/"+photo+"&amp;w=745&amp;h=727&amp;a=br);'><div class='staff-bio'><div class='staff-bio-content'><h1>"+first+" "+last+"</h1><h2>"+pos+" <span class='fav-sport'>❤ Sport: "+sport+"</span></h2><p>"+bio+"</p></div></div>></div>");
+        $('.selected').append("<div style='height: 727px; width: 100%; background:url(http://communityboard.storeapps.fglsports.dmz/images/staff/p/"+file+"_1080X947.jpg) top center;'><div class='staff-bio'><div class='staff-bio-content'><h1>"+first+" "+last+"</h1><h2>"+pos+" <span class='fav-sport'>❤ Sport: "+sport+"</span></h2><p>"+bio+"</p></div></div>></div>");
         $('.selected div').hide();
 
         $('.selected div').fadeIn(600);
