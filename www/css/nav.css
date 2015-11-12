@@ -34,7 +34,14 @@
             display: none;
             position: relative;
             top: 30px;
-            left: 650px;
+            left: 540px;
+        }
+
+        #gotoHome{
+            display: none;
+            position: relative;
+            top: 30px;
+            left: 80px;
         }
 
         #nav-services, #nav-how, #nav-training{ display: none; }
@@ -48,22 +55,27 @@
         }
 
         .selectbox{
-            margin: 0px 30px 30px 50px;
+            /*margin: 0px 30px 30px 50px;*/
+            margin : 0px 5px 30px 60px;
             display: block;
-            height: 172px;
-            width: 236px;
-            background: transparent url('../img/select-box.png') top left no-repeat;
+            /*height: 172px;
+            width: 236px;*/
+            height: 270px;
+            width: 250px;
+            background: transparent url('../img/select-box-0.8.png') top left repeat;
             float: left;
             /*font: normal 22px GalaxiePolarisCondensed-Book;*/
         }
             .selectbox-content{}
             .selectbox-content img{ 
                 position: relative;
-                top: 3px;
-                left: 3px;
+                top: 10px;
+                left: 10px;
                 border: 5px solid #1f1f1f;
-                height: 81px;
+                /*height: 81px;
+                width: 220px;*/
                 width: 220px;
+                height: 157px;
             }
 
             .selectbox-content h2{
@@ -71,6 +83,7 @@
                 color: #fff;
                 text-transform: uppercase;
                 margin: 8px 0px 0px 8px;
+                padding-top: 10px;
             }
 
             .selectbox-content p{

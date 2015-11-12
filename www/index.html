@@ -15,6 +15,7 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/nav.css" />
         <link rel="stylesheet" href="js/fancybox/source/jquery.fancybox.css">
+        <link rel="stylesheet" type="text/css" href="js/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/calendar.full.css">
         <title>Community Board App</title>
 
@@ -27,13 +28,16 @@
             </div>
 
             <div id="panel">
-                <img src="img/close.png" id="close" />
-
+                
+                    <img src="img/home.png" id="gotoHome">
+                    <img src="img/close.png" id="close" />
+                
                 <div id="nav-services" class="navbox">
                     <div class="selectbox" id="staff-nav">
                         <div class="selectbox-content">
                            <!--  <img src="img/snowsports-nav.jpg" /> -->
-                           <img src="http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/staff/ffa605007d5b84bd70e6eeb0e235297f6c02f87f.JPG&amp;w=220&amp;h=81&amp;a=tr">
+                           <!-- <img src="http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/staff/ffa605007d5b84bd70e6eeb0e235297f6c02f87f.JPG&amp;w=220&amp;h=81&amp;a=tr"> -->
+                            <img src="">
                             <h2>Meet Our Staff</h2>
                             <p>Learn about our expert staff.</p>
                         </div>
@@ -41,7 +45,7 @@
 
                     <div class="selectbox" id="photos-nav">
                         <div class="selectbox-content">
-                            <img src="img/hockey-nav.jpg" />
+                            <img src="img/community-photos.png" />
                             <h2>Community Photos </h2>
                             <p>See SportChek staff and customers in action.</p>
                         </div>
@@ -63,13 +67,13 @@
                         </div>
                     </div> <!-- end other -->
 
-                    <div class="selectbox" id="scores-nav">
+                    <!-- <div class="selectbox" id="scores-nav">
                         <div class="selectbox-content">
                             <img src="img/scores-nav.png" />
                             <h2>Live Scores</h2>
                             <p>Get caught up on yesterday's scores and games happening right now.</p>
                         </div>
-                    </div> <!-- end other -->
+                    </div> --> <!-- end other -->
 
 <!--                     <div class="selectbox" id="feature-nav">
                         <div class="selectbox-content">
@@ -87,6 +91,7 @@
                 var h = window.innerHeight;
                 // document.write("width: " + w +"px  X  ");
                 // document.write("height: "+ h +"px;");
+
             </script>
 
             <div id="main">
@@ -95,10 +100,11 @@
 
                     <div class="navbox">
                     <h1 class="splash-title">Community Board</h1>
-                <div class="selectbox" id="staff-nav-splash">
+                    <div class="selectbox" id="staff-nav-splash">
                         <div class="selectbox-content">
-                <!--  <img src="img/snowsports-nav.jpg" /> -->
-                           <img src="http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/staff/ffa605007d5b84bd70e6eeb0e235297f6c02f87f.JPG&amp;w=220&amp;h=81&amp;a=tr">
+                           <!--  <img src="img/snowsports-nav.jpg" /> -->
+                           <!-- <img src="http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/staff/ffa605007d5b84bd70e6eeb0e235297f6c02f87f.JPG&amp;w=220&amp;h=81&amp;a=tr"> -->
+                            <img src="">
                             <h2>Meet Our Staff</h2>
                             <p>Learn about our expert staff.</p>
                         </div>
@@ -106,7 +112,7 @@
 
                     <div class="selectbox" id="photos-nav-splash">
                         <div class="selectbox-content">
-                            <img src="img/hockey-nav.jpg" />
+                            <img src="img/community-photos.png" />
                             <h2>Community Photos </h2>
                             <p>See SportChek staff and customers in action.</p>
                         </div>
@@ -128,13 +134,13 @@
                         </div>
                     </div> <!-- end other -->
 
-                    <div class="selectbox" id="scores-nav-splash">
+                    <!-- <div class="selectbox" id="scores-nav-splash">
                         <div class="selectbox-content">
                             <img src="img/scores-nav.png" />
                             <h2>Live Scores</h2>
                             <p>Get caught up on yesterday`s scores and games happening right now.</p>
                         </div>
-                    </div> <!-- end other -->
+                    </div> --> <!-- end other -->
                 </div></div>
 
 
@@ -144,10 +150,19 @@
 <!--        <script type="text/javascript" src="cordova.js"></script>  -->
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/fancybox/source/jquery.fancybox.js"></script>
+        <script type="text/javascript" src="js/jquery.mosaicflow.min.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
 
         <script type="text/javascript">
             app.initialize();
+            $.getJSON('http://communityboard.storeapps.fglsports.dmz/'+STORENUMBER+'/api/staff', function(json) {
+                    random = json[Math.floor(Math.random()*json.length)];
+                    var filename = random.photo;
+                    var extension = filename.match(/\.(\w)+/);
+                    file  = filename.substr(0, extension.index);
+                    $("#staff-nav-splash .selectbox-content").find("img").attr('src', "http://communityboard.storeapps.fglsports.dmz/images/staff/ls/" + file + "_1180X847.jpg" );
+                    $("#staff-nav .selectbox-content").find("img").attr('src', "http://communityboard.storeapps.fglsports.dmz/images/staff/ls/" + file + "_1180X847.jpg" );
+            });
         </script>
 
 
