@@ -44,7 +44,7 @@ body {
 /* Portrait layout (default) */
 .app {
   width: 1280px;
-  height: 727px;
+  height: 800px;
   background-color: #333 !important;
   border: 0px solid lime;
   overflow: hidden !important;
@@ -85,7 +85,7 @@ body {
 
 .staff-bio{
     position: relative;
-    top: 200px;
+    top: 373px;
     height: 100%;
     width: 100%;
     background: url(../img/bio-bg.png) top left no-repeat;
