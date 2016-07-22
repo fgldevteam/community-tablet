@@ -17,7 +17,7 @@
  * under the License.
  */
 
-const STORENUMBER = '0375';
+const STORENUMBER = '0243';
 
 var app = {
     // Application Constructor
@@ -121,7 +121,7 @@ var openPanel = function(id){
 var closePanel = function(){
     $('.fancybox-brent').remove();
     $("#photos a").addClass("fancybox");
-    
+
     hideNavItems();
     $("#panel").removeClass("open");
     // $("#services").removeClass("grey");
@@ -315,7 +315,7 @@ var getPhotos= function(){
         //loop the photos
         var i=1;
         var parent = 0;
-            
+
         $.each(my_json, function(index, element) {
 
             var filename = element.path;
@@ -328,13 +328,13 @@ var getPhotos= function(){
             else{
                 var parent = getShortestColumn();
             }
-            
+
             console.log("parent :"+ parent);
-            
+
             $('#photos').find(".mosaicflow__column").eq(parent).append(
-               
+
                "<div class='mosaicflow__item'> <a class='fancybox' href='http://communityboard.storeapps.fglsports.dmz/images/photos/full/"+file+"_1000.jpg'><img src='http://communityboard.storeapps.fglsports.dmz/images/photos/thumb/"+file+"_300.jpg'></a></div>"
-               
+
             );
 
             i++;
@@ -354,7 +354,7 @@ var getPhotos= function(){
 
 var getShortestColumn = function() {
 
-            var heights = [ 
+            var heights = [
                                 $(".mosaicflow__column:eq(0)").height(),
                                 $(".mosaicflow__column:eq(1)").height(),
                                 $(".mosaicflow__column:eq(2)").height(),
@@ -374,7 +374,7 @@ var getStaff = function(){
 
     var my_json;
     $.getJSON('http://communityboard.storeapps.fglsports.dmz/'+STORENUMBER+'/api/staff', function(json) {
-      console.log(json);  
+      console.log(json);
       my_json = json;
         // var first_photo = my_json[0].photo;
         // var first_first = my_json[0].first;
@@ -406,7 +406,7 @@ var getStaff = function(){
             var filename = element.photo;
             var extension = filename.match(/\.(\w)+/);
             var file  = filename.substr(0, extension.index);
-            
+
 
             $('.staff').append(
                // "<div class='person'><a href=javascript:showPerson(`"+element.first+"`,`"+element.last+"`,`"+element.position+"`,`"+element.photo+"`,`"+element.bio+"`,`"+element.favorite_sport+"`);><img src='http://communityboard.storeapps.fglsports.dmz/timthumb.php?src=/images/staff/"+element.photo+"&amp;w=124&amp;h=158&amp;a=br'></a></div>"
