@@ -17,7 +17,7 @@
  * under the License.
  */
 
-const STORENUMBER = '0308';
+const STORENUMBER = '0248';
 
 var app = {
     // Application Constructor
